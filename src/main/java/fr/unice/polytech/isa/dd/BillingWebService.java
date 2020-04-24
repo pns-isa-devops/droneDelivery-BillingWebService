@@ -15,7 +15,7 @@ public interface BillingWebService {
 
     @WebMethod
     @WebResult(name = "bill_generate")
-    Set<Bill> generateBill();
+    Set<Bill> generateBill() throws Exception;
 
 
     @WebMethod

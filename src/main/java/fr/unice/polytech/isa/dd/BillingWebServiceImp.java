@@ -19,7 +19,7 @@ public class BillingWebServiceImp implements BillingWebService {
     private CheckTransferStatus cs;
 
     @Override
-    public Set<Bill> generateBill() {
+    public Set<Bill> generateBill() throws Exception {
 //        Database.getInstance().initializeDatabase();
         bg.generateBill();
         Set<Bill> result = new HashSet<>();
