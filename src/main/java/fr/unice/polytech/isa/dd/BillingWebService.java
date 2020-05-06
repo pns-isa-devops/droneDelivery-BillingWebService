@@ -13,10 +13,10 @@ import java.util.Set;
 @WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/billingService")
 public interface BillingWebService {
 
-//
-//    @WebMethod
-//    @WebResult(name = "bill_generate")
-//    Set<Bill> generateBill() throws Exception;
+
+    @WebMethod
+    @WebResult(name = "bill_generate")
+    Set<Bill> generateBill() throws Exception;
 
 
     @WebMethod

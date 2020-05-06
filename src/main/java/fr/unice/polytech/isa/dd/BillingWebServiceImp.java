@@ -14,21 +14,20 @@ import java.util.Set;
 public class BillingWebServiceImp implements BillingWebService {
 
 
-//    @EJB
-//    private BillingGeneratedInterface bg;
+    @EJB
+    private BillingGeneratedInterface bg;
     @EJB
     private CheckTransferStatus cs;
 
-//    @Override
-//    public Set<Bill> generateBill() throws Exception {
-////        Database.getInstance().initializeDatabase();
-//        bg.generateBill();
-//        Set<Bill> result = new HashSet<>();
-//        for (Bill b : Database.getInstance().getBillList()) {
-//            result.add(b);
-//        }
-//        return result;
-//    }
+    @Override
+    public Set<Bill> generateBill(){
+        bg.generateBill();
+        Set<Bill> result = new HashSet<>();
+        for (Bill b : Database.getInstance().getBillList()) {
+            result.add(b);
+        }
+        return result;
+    }
 
     @Override
     public List<Integer> checkStatut() throws ExternalPartnerException {
@@ -41,6 +40,6 @@ public class BillingWebServiceImp implements BillingWebService {
 //            }
 //        }
 //        return "NOT FOUND";
-        return cs.getAllPaidBills2();
+        return cs.allIdBillPaid();
     }
 }
