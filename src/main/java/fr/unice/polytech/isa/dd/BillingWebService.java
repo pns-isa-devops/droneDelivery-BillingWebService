@@ -16,11 +16,22 @@ public interface BillingWebService {
 
     @WebMethod
     @WebResult(name = "bill_generate")
-    Set<Bill> generateBill() throws Exception;
-
+    boolean generateBill();
 
     @WebMethod
-    @WebResult(name = "payedList")
-    List<Integer> checkStatut() throws ExternalPartnerException;
+    @WebResult(name = "bill_list")
+    List<Bill> getBills();
+
+//    @WebMethod
+//    @WebResult(name = "payedList")
+//    List<Integer> checkStatut() throws ExternalPartnerException;
+
+    @WebMethod
+    @WebResult(name = "check_statut")
+    String checkStatut(int id);
+
+    @WebMethod
+    @WebResult(name = "payed_List")
+    List<Bill> getAllPaidBills() throws ExternalPartnerException;
 
 }

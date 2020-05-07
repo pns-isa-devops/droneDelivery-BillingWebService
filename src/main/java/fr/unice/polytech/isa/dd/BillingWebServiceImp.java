@@ -20,26 +20,36 @@ public class BillingWebServiceImp implements BillingWebService {
     private CheckTransferStatus cs;
 
     @Override
-    public Set<Bill> generateBill(){
+    public boolean generateBill(){
+        System.out.println("Générer les factures");
         bg.generateBill();
-        Set<Bill> result = new HashSet<>();
-        for (Bill b : Database.getInstance().getBillList()) {
-            result.add(b);
-        }
-        return result;
+        return true;
     }
 
     @Override
-    public List<Integer> checkStatut() throws ExternalPartnerException {
-        System.out.println("je suis ici");
-//        if (cs.findBillById(id) != null) {
-//            if (cs.checkstatut(id)) {
-//                return "PAID";
-//            } else {
-//                return "UNPAID";
-//            }
-//        }
-//        return "NOT FOUND";
-        return cs.allIdBillPaid();
+    public List<Bill> getBills(){
+        System.out.println("Lister les factures");
+        return bg.get_bills();
+    }
+
+
+    @Override
+    public String checkStatut(int id) {
+        System.out.println("vérifier Statut Facture");
+        if (cs.findBillById(id) != null) {
+            if (cs.checkstatut(id)) {
+                return "PAID";
+            } else {
+                return "UNPAID";
+            }
+        }
+        return "NOT FOUND";
+    }
+
+
+    @Override
+    public List<Bill> getAllPaidBills() throws ExternalPartnerException{
+        System.out.println("Lister les factures payées");
+        return cs.getAllPaidBills();
     }
 }
