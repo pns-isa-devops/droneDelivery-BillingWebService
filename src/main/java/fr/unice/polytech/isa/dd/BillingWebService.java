@@ -22,6 +22,10 @@ public interface BillingWebService {
     @WebResult(name = "bill_list")
     List<Bill> getBills();
 
+    @WebMethod
+    @WebResult(name = "delete_all")
+    boolean deleteAll();
+
 //    @WebMethod
 //    @WebResult(name = "payedList")
 //    List<Integer> checkStatut() throws ExternalPartnerException;

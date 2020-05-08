@@ -52,4 +52,10 @@ public class BillingWebServiceImp implements BillingWebService {
         System.out.println("Lister les factures payées");
         return cs.getAllPaidBills();
     }
+
+    @Override
+    public boolean deleteAll() {
+        System.out.println("deleteAll");
+        return bg.deleteAll();
+    }
 }
